@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>parking_lot_v1 — инженерный прототип</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">parking_lot_v1</p>
+          <h1>Проверка геометрии парковочных модулей</h1>
+          <p class="subtitle">
+            Локальный no-npm прототип: невыпуклый участок, растровая проверка
+            модулей 90° и SVG-визуализация без внешних зависимостей.
+          </p>
+        </div>
+      </header>
+
+      <section class="controls" aria-label="Параметры расчета">
+        <label>
+          <span>Ширина места, м</span>
+          <input id="stallWidthInput" type="number" min="1" step="0.1" value="2.5" />
+        </label>
+        <label>
+          <span>Длина места, м</span>
+          <input id="stallLengthInput" type="number" min="1" step="0.1" value="5.3" />
+        </label>
+        <label>
+          <span>Ширина проезда, м</span>
+          <input id="aisleWidthInput" type="number" min="1" step="0.1" value="6.0" />
+        </label>
+        <label>
+          <span>Шаг сетки, м</span>
+          <input id="gridStepInput" type="number" min="0.1" step="0.1" value="0.5" />
+        </label>
+        <label>
+          <span>Центр въезда X, м</span>
+          <input id="entranceXInput" type="number" step="0.1" value="21" />
+        </label>
+        <label>
+          <span>Центр въезда Y, м</span>
+          <input id="entranceYInput" type="number" step="0.1" value="0" />
+        </label>
+        <label>
+          <span>Ширина въезда, м</span>
+          <input id="entranceWidthInput" type="number" min="0.1" step="0.1" value="6.0" />
+        </label>
+        <label>
+          <span>Сторона въезда</span>
+          <select id="entranceSideInput">
+            <option value="bottom" selected>bottom</option>
+            <option value="top">top</option>
+            <option value="left">left</option>
+            <option value="right">right</option>
+          </select>
+        </label>
+        <button id="recalculateButton" type="button">Пересчитать</button>
+        <p id="warningMessage" class="warning-message" hidden></p>
+      </section>
+
+      <section class="content-grid">
+        <section class="plan-card" aria-label="SVG-план участка">
+          <div id="svgContainer" class="svg-container"></div>
+        </section>
+
+        <aside class="stats-card" aria-label="Статистика">
+          <h2>Статистика</h2>
+          <dl id="statsList" class="stats-list"></dl>
+          <p class="note">
+            Площадь проездов считается по уникальным занятым ячейкам сетки,
+            поэтому наложения проездов не задваиваются.
+          </p>
+        </aside>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
