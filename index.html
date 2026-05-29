@@ -36,7 +36,29 @@
           <span>Шаг сетки, м</span>
           <input id="gridStepInput" type="number" min="0.1" step="0.1" value="0.5" />
         </label>
+        <label>
+          <span>Центр въезда X, м</span>
+          <input id="entranceXInput" type="number" step="0.1" value="21" />
+        </label>
+        <label>
+          <span>Центр въезда Y, м</span>
+          <input id="entranceYInput" type="number" step="0.1" value="0" />
+        </label>
+        <label>
+          <span>Ширина въезда, м</span>
+          <input id="entranceWidthInput" type="number" min="0.1" step="0.1" value="6.0" />
+        </label>
+        <label>
+          <span>Сторона въезда</span>
+          <select id="entranceSideInput">
+            <option value="bottom" selected>bottom</option>
+            <option value="top">top</option>
+            <option value="left">left</option>
+            <option value="right">right</option>
+          </select>
+        </label>
         <button id="recalculateButton" type="button">Пересчитать</button>
+        <p id="warningMessage" class="warning-message" hidden></p>
       </section>
 
       <section class="content-grid">
